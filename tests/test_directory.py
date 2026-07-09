@@ -21,6 +21,8 @@ def directory_page(page):
     directory_page=DirectoryPage(page)
     yield directory_page
 
+#-----------------------Test Cases-----------------------------------------------
+
 def test_employee_count_in_directory(directory_page: DirectoryPage):
     """ Verify that the number of employee cards displayed in the directory matches the number of records shown on the page """
     directory_page.wait_for_page_load()

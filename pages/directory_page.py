@@ -14,6 +14,8 @@ class DirectoryPage:
         return self.page.locator(".orangehrm-corporate-directory-sidebar")
 
 #-----------------------------------Actions--------------------------------------
+    def navigate_to_directory(self):
+        self.page.goto(self.URL)
     def wait_for_page_load(self):
         self.page.wait_for_load_state("networkidle")
 
@@ -25,7 +27,7 @@ class DirectoryPage:
         while True:
             # Scroll the inner container to its bottom
             scroll_container.evaluate("el => el.scrollTo(0, el.scrollHeight)")
-            self.page.wait_for_timeout(1000) # wait to allow new cards to load
+            self.page.wait_for_timeout(2000) # wait to allow new cards to load
             
             current_count = self.employee_cards.count()
             if current_count == previous_count:
